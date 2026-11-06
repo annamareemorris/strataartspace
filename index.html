@@ -13,160 +13,181 @@
 
   <style>
     :root {
-      --bg-main: #f9f9fb;
+      --bg-main: #fcfcfd;
       --bg-card: #ffffff;
-      --bg-alt: #f1f3f5;
-      --text-main: #1c1e21;
-      --text-muted: #65676b;
+      --bg-alt: #f4f5f7;
+      --text-main: #1a1c1e;
+      --text-muted: #5f6368;
       --accent-burgundy: #3d1418;
-      --accent-copper: #c25e00;
       --border-color: rgba(0, 0, 0, 0.08);
-      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-      --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.06);
-      --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
+      --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 24px 48px rgba(0, 0, 0, 0.12);
       --font-heading: 'Cormorant Garamond', serif;
       --font-body: 'Inter', sans-serif;
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { background-color: var(--bg-main); color: var(--text-main); font-family: var(--font-body); line-height: 1.6; overflow-x: hidden; }
+    body { background-color: var(--bg-main); color: var(--text-main); font-family: var(--font-body); line-height: 1.7; overflow-x: hidden; }
 
     h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 600; color: #111827; }
     a { color: inherit; text-decoration: none; }
 
-    /* Navbar */
+    /* Minimalist Top Navbar */
     .navbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-color); padding: 0.75rem 2rem;
+      background: rgba(252, 252, 253, 0.88); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color); padding: 1.2rem 3rem;
       display: flex; justify-content: space-between; align-items: center;
-      box-shadow: var(--shadow-sm);
     }
-    .brand-logo-img { height: 45px; object-fit: contain; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
-    .nav-links a { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); font-weight: 500; transition: var(--transition); }
-    .nav-links a:hover, .nav-links a.active { color: var(--text-main); }
+    .nav-brand-text {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-burgundy);
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+    .nav-links a { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); font-weight: 600; transition: var(--transition); }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent-burgundy); }
     
     .fb-btn {
-      background: #1877f2; color: white !important; padding: 0.5rem 1.2rem;
+      background: #1877f2; color: white !important; padding: 0.5rem 1.3rem;
       border-radius: 30px; display: inline-flex; align-items: center; gap: 0.5rem;
-      font-weight: 600; font-size: 0.85rem !important; transition: var(--transition) !important;
+      font-weight: 600; font-size: 0.8rem !important; transition: var(--transition) !important;
+      box-shadow: 0 4px 12px rgba(24, 119, 242, 0.2);
     }
-    .fb-btn:hover { background: #166fe5; transform: translateY(-2px); }
+    .fb-btn:hover { background: #1565c0; transform: translateY(-2px); }
 
-    /* Hero */
+    /* Hero Section with Centered Logo */
     .hero {
-      min-height: 75vh; padding: 9rem 2rem 4rem; display: flex; align-items: center; justify-content: center;
-      background: radial-gradient(circle at 50% 20%, rgba(61, 20, 24, 0.05) 0%, rgba(249, 249, 251, 1) 70%);
+      min-height: 85vh; padding: 11rem 2rem 5rem; display: flex; align-items: center; justify-content: center;
+      background: radial-gradient(circle at 50% 15%, rgba(61, 20, 24, 0.04) 0%, rgba(252, 252, 253, 1) 65%);
       text-align: center;
     }
-    .hero-content { max-width: 900px; }
+    .hero-content { max-width: 950px; display: flex; flex-direction: column; align-items: center; }
+    
+    .hero-logo-img {
+      max-width: 440px;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      margin-bottom: 2.5rem;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.06));
+    }
+
+    .hero-subtitle {
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
     .hero-quote {
       font-family: var(--font-heading);
-      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
-      line-height: 1.5;
+      font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+      line-height: 1.6;
       color: var(--accent-burgundy);
-      margin-bottom: 2rem;
       font-style: italic;
-      font-weight: 600;
+      font-weight: 500;
+      max-width: 820px;
     }
-    .hero-subtitle { text-transform: uppercase; letter-spacing: 0.25em; color: var(--text-muted); font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
 
-    .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
-    .section { padding: 5rem 0; }
-    .section-header { text-align: center; margin-bottom: 3rem; }
-    .section-title { font-size: 2.6rem; margin-bottom: 0.5rem; }
-    .section-desc { color: var(--text-muted); max-width: 600px; margin: 0 auto; font-size: 0.95rem; }
+    .container { max-width: 1300px; margin: 0 auto; padding: 0 2.5rem; }
+    .section { padding: 6rem 0; }
+    .section-header { text-align: center; margin-bottom: 3.5rem; }
+    .section-title { font-size: 2.8rem; margin-bottom: 0.75rem; }
+    .section-desc { color: var(--text-muted); max-width: 600px; margin: 0 auto; font-size: 1rem; }
 
     /* Filter Bar */
-    .filter-bar { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 3rem; }
+    .filter-bar { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 3.5rem; }
     .filter-btn {
       background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-muted);
-      padding: 0.5rem 1.2rem; border-radius: 30px; cursor: pointer; font-size: 0.8rem;
-      font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; transition: var(--transition);
+      padding: 0.6rem 1.4rem; border-radius: 30px; cursor: pointer; font-size: 0.78rem;
+      font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; transition: var(--transition);
       box-shadow: var(--shadow-sm);
     }
-    .filter-btn:hover, .filter-btn.active { background: var(--accent-burgundy); color: white; border-color: var(--accent-burgundy); }
+    .filter-btn:hover, .filter-btn.active { background: var(--accent-burgundy); color: white; border-color: var(--accent-burgundy); box-shadow: 0 6px 20px rgba(61, 20, 24, 0.2); }
 
     /* Gallery Grid */
-    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2.5rem; }
     .art-card {
-      background: var(--bg-card); border-radius: 12px; overflow: hidden;
+      background: var(--bg-card); border-radius: 16px; overflow: hidden;
       border: 1px solid var(--border-color); transition: var(--transition);
       display: flex; flex-direction: column; cursor: pointer; box-shadow: var(--shadow-sm);
     }
-    .art-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: rgba(61, 20, 24, 0.3); }
+    .art-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); border-color: rgba(61, 20, 24, 0.25); }
     .art-img-wrapper { position: relative; padding-top: 100%; background: #eaeff4; overflow: hidden; }
-    .art-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-    .art-card:hover .art-img { transform: scale(1.04); }
+    .art-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+    .art-card:hover .art-img { transform: scale(1.05); }
     .art-overlay {
-      position: absolute; inset: 0; background: rgba(0,0,0,0.3);
+      position: absolute; inset: 0; background: rgba(0,0,0,0.35); backdrop-filter: blur(4px);
       display: flex; align-items: center; justify-content: center; opacity: 0; transition: var(--transition);
     }
     .art-card:hover .art-overlay { opacity: 1; }
-    .view-btn { background: white; color: #111; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .view-btn { background: white; color: #111; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
 
-    .art-info { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
-    .art-category { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-burgundy); font-weight: 700; margin-bottom: 0.3rem; }
-    .art-title { font-size: 1.3rem; margin-bottom: 0.2rem; }
-    .art-artist { color: var(--text-muted); font-size: 0.9rem; }
+    .art-info { padding: 1.75rem; display: flex; flex-direction: column; flex-grow: 1; }
+    .art-category { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent-burgundy); font-weight: 700; margin-bottom: 0.4rem; }
+    .art-title { font-size: 1.4rem; margin-bottom: 0.3rem; }
+    .art-artist { color: var(--text-muted); font-size: 0.95rem; }
 
     /* Artists Section */
-    .artists-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
+    .artists-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2.5rem; }
     .artist-card {
-      background: var(--bg-card); border: 1px solid var(--border-color); padding: 2rem;
-      border-radius: 16px; text-align: center; box-shadow: var(--shadow-sm); transition: var(--transition);
+      background: var(--bg-card); border: 1px solid var(--border-color); padding: 2.25rem 1.75rem;
+      border-radius: 20px; text-align: center; box-shadow: var(--shadow-sm); transition: var(--transition);
     }
-    .artist-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--accent-burgundy); }
+    .artist-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--accent-burgundy); }
     .artist-avatar {
-      width: 90px; height: 90px; border-radius: 50%; margin: 0 auto 1.2rem;
+      width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 1.5rem;
       object-fit: cover; border: 3px solid var(--accent-burgundy); background: #f3f4f6;
-      display: flex; align-items: center; justify-content: center; color: var(--accent-burgundy); font-size: 2rem;
+      display: flex; align-items: center; justify-content: center; color: var(--accent-burgundy); font-size: 2.2rem;
     }
-    .artist-card h3 { font-size: 1.4rem; margin-bottom: 0.3rem; }
-    .artist-specialty { color: var(--accent-burgundy); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.8rem; }
-    .artist-bio { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
+    .artist-card h3 { font-size: 1.5rem; margin-bottom: 0.4rem; }
+    .artist-specialty { color: var(--accent-burgundy); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
+    .artist-bio { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; }
 
     /* Modal */
     .modal {
-      position: fixed; inset: 0; z-index: 1000; background: rgba(17, 24, 39, 0.8);
-      backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center;
+      position: fixed; inset: 0; z-index: 1000; background: rgba(17, 24, 39, 0.75);
+      backdrop-filter: blur(12px); display: flex; align-items: center; justify-content: center;
       padding: 2rem; opacity: 0; pointer-events: none; transition: var(--transition);
     }
     .modal.active { opacity: 1; pointer-events: auto; }
     .modal-content {
-      background: var(--bg-card); border-radius: 16px; max-width: 900px; width: 100%;
+      background: var(--bg-card); border-radius: 20px; max-width: 950px; width: 100%;
       display: grid; grid-template-columns: 1.2fr 1fr; overflow: hidden; position: relative; box-shadow: var(--shadow-lg);
     }
     @media(max-width: 768px) { .modal-content { grid-template-columns: 1fr; max-height: 85vh; overflow-y: auto; } }
     .modal-close {
-      position: absolute; top: 1rem; right: 1rem; background: white; border: 1px solid var(--border-color);
-      width: 36px; height: 36px; border-radius: 50%; cursor: pointer; z-index: 10;
-      display: flex; align-items: center; justify-content: center;
+      position: absolute; top: 1.25rem; right: 1.25rem; background: white; border: 1px solid var(--border-color);
+      width: 40px; height: 40px; border-radius: 50%; cursor: pointer; z-index: 10;
+      display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-sm);
     }
-    .modal-img-container { background: #f3f4f6; display: flex; align-items: center; justify-content: center; min-height: 320px; }
-    .modal-img-container img { width: 100%; height: 100%; max-height: 500px; object-fit: contain; }
-    .modal-details { padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; }
-    .modal-badge { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-burgundy); font-weight: 700; margin-bottom: 0.5rem; }
-    .modal-title { font-size: 2rem; margin-bottom: 0.4rem; }
-    .modal-artist { color: var(--text-muted); font-size: 1rem; margin-bottom: 1.2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-color); }
-    .modal-desc { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
+    .modal-img-container { background: #f3f4f6; display: flex; align-items: center; justify-content: center; min-height: 380px; }
+    .modal-img-container img { width: 100%; height: 100%; max-height: 550px; object-fit: contain; }
+    .modal-details { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
+    .modal-badge { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent-burgundy); font-weight: 700; margin-bottom: 0.6rem; }
+    .modal-title { font-size: 2.2rem; margin-bottom: 0.5rem; }
+    .modal-artist { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-color); }
+    .modal-desc { color: var(--text-muted); font-size: 0.98rem; margin-bottom: 2rem; line-height: 1.8; }
 
     /* Footer */
-    footer { border-top: 1px solid var(--border-color); padding: 3rem 0; text-align: center; color: var(--text-muted); font-size: 0.9rem; background: #fff; }
+    footer { border-top: 1px solid var(--border-color); padding: 4rem 0; text-align: center; color: var(--text-muted); font-size: 0.9rem; background: #fff; }
     footer a { color: var(--accent-burgundy); font-weight: 600; }
   </style>
 </head>
 <body>
 
-  <!-- Navigation with Logo Attached -->
+  <!-- Minimalist Top Navbar -->
   <nav class="navbar">
-    <div class="brand">
-      <img src="images/stratalogo.jpg" alt="Strata Artspace Logo" class="brand-logo-img" onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='block'">
-      <span id="fallback-logo" style="display:none; font-family:'Cormorant Garamond'; font-size:1.5rem; font-weight:700; color:#3d1418;">STRATA ARTSPACE</span>
-    </div>
+    <div class="nav-brand-text">Strata Artspace</div>
     <ul class="nav-links">
       <li><a href="#gallery" class="active">Gallery</a></li>
       <li><a href="#artists">Artists & Makers</a></li>
@@ -179,10 +200,14 @@
     </ul>
   </nav>
 
-  <!-- Hero Section with Quote -->
+  <!-- Hero Section with Centered Logo -->
   <header class="hero">
     <div class="hero-content">
+      <img src="images/stratalogo.jpg" alt="Strata Artspace Logo" class="hero-logo-img" onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='block'">
+      <h1 id="fallback-logo" style="display:none; font-family:'Cormorant Garamond'; font-size:3.5rem; font-weight:700; color:#3d1418; margin-bottom:1.5rem;">STRATA ARTSPACE</h1>
+      
       <p class="hero-subtitle">Old Cromwell Historic Precinct • Central Otago</p>
+      
       <blockquote class="hero-quote">
         “Strata Artspace is a contemporary art gallery collective known for jewellery, sculpture, paintings, ceramics, photography, current art works of beautiful and unique Central Otago.”
       </blockquote>
@@ -193,11 +218,11 @@
   <section id="gallery" class="section">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Featured Works</h2>
-        <p class="section-desc">Explore curated artwork by our resident artists and makers.</p>
+        <h2 class="section-title">Curated Collection</h2>
+        <p class="section-desc">Explore recent works from our resident artists and makers in Central Otago.</p>
       </div>
 
-      <!-- Filter Buttons matching exact categories -->
+      <!-- Filter Buttons -->
       <div class="filter-bar">
         <button class="filter-btn active" onclick="filterGallery('all')">All Works</button>
         <button class="filter-btn" onclick="filterGallery('Jewellery')">Jewellery</button>
@@ -218,8 +243,8 @@
   <section id="artists" class="section" style="background: var(--bg-alt); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Our Resident Artists & Makers</h2>
-        <p class="section-desc">Meet the creative minds behind Strata Artspace.</p>
+        <h2 class="section-title">Resident Artists & Makers</h2>
+        <p class="section-desc">Meet the official exhibiting artists at Strata Artspace.</p>
       </div>
       <div class="artists-grid" id="artistsGrid"></div>
     </div>
@@ -228,11 +253,11 @@
   <!-- About / Visit Section -->
   <section id="about" class="section">
     <div class="container" style="max-width: 800px; text-align: center;">
-      <h2 class="section-title" style="margin-bottom: 1rem;">Visit Strata Artspace</h2>
-      <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
-        Located at 1 & 15 Melmore Terrace, Old Cromwell Historic Precinct, Central Otago. Open 6 days a week from 10:00 AM to 4:00 PM (closed Tuesdays). Come in and meet our artists on duty daily.
+      <h2 class="section-title" style="margin-bottom: 1.25rem;">Visit the Gallery</h2>
+      <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.9; margin-bottom: 2rem;">
+        Located at Melmore Terrace, Old Cromwell Historic Precinct, Central Otago. Open 6 days a week from 10:00 AM to 4:00 PM (closed Tuesdays). Come in and meet our artists on duty daily.
       </p>
-      <a href="https://www.facebook.com/p/Strata-Artspace-61595813769390/" target="_blank" class="fb-btn" style="padding: 0.75rem 1.8rem; font-size: 0.95rem !important;">
+      <a href="https://www.facebook.com/p/Strata-Artspace-61595813769390/" target="_blank" class="fb-btn" style="padding: 0.85rem 2rem; font-size: 0.95rem !important;">
         <i class="fa-brands fa-facebook"></i> Connect with us on Facebook
       </a>
     </div>
@@ -272,7 +297,7 @@
         category: "Painters",
         medium: "Oil Paint",
         desc: "An exquisite oil painting capturing the rugged textures and dramatic water movement of the southern landscape.",
-        image: "images/whispering falls.jpg"
+        image: "images/whispering-falls.jpg"
       },
       {
         id: 2,
@@ -281,7 +306,7 @@
         category: "Collage",
         medium: "Mixed Media Collage",
         desc: "An intricate, highly detailed collage work depicting a majestic stag formed from rich environmental textures.",
-        image: "images/Stag.jpg"
+        image: "images/stag.jpg"
       },
       {
         id: 3,
@@ -290,7 +315,7 @@
         category: "Sculptor",
         medium: "Wire Work",
         desc: "Expressive and fluid sculptural wire work capturing delicate human form and motion.",
-        image: "images/Hidden Moments.jpg"
+        image: "images/hidden-moments.jpg"
       },
       {
         id: 4,
@@ -308,19 +333,19 @@
         category: "Photographer",
         medium: "Fine Art Photography",
         desc: "A stunning photographic study of light and mirrored waters in the Cromwell basin.",
-        image: "images/Dunstan Reflections.jpg"
+        image: "images/dunstan-reflections.jpg"
       }
     ];
 
     const artistsList = [
       { name: "Carmen Burgi", specialty: "Contemporary Jewellers and Object Makers", bio: "Handcrafted artisan jewellery and objects created using precious metals and local stones.", image: "images/carmen-burgi.jpg" },
       { name: "Jennifer Hay", specialty: "Contemporary Jewellers and Object Makers", bio: "Unique contemporary jewellery and wearable design.", image: "images/jennifer-hay.jpg" },
-      { name: "Gail de Jong", specialty: "Painters", bio: "Expressive oil and acrylic painter exploring southern light and geological formations.", image: "images/gail-de-jong.jpg" },
-      { name: "Kirsty Mills", specialty: "Painters", bio: "Fine artist capturing the atmosphere and character of the New Zealand landscape.", image: "images/kirsty-mills.jpg" },
-      { name: "Drew McRae", specialty: "Pastel & Paint", bio: "Dynamic works combining rich pastel techniques and painted textures.", image: "images/drew-mcrae.jpg" },
+      { name: "Gail de Jong", specialty: "Painters", bio: "Recognized regional oil painter exploring the distinctive southern light and geological formations of Central Otago.", image: "images/gail-de-jong.jpg" },
+      { name: "Kirsty Mills", specialty: "Painters", bio: "Fine artist capturing the atmosphere, depth, and unique character of the New Zealand landscape.", image: "images/kirsty-mills.jpg" },
+      { name: "Drew McRae", specialty: "Pastel & Paint", bio: "Dynamic works combining rich pastel techniques and expressive painted textures.", image: "images/drew-mcrae.jpg" },
       { name: "Debbie Neill", specialty: "Sculptor/Wire Work", bio: "Creating graceful, expressive figurative sculptures from fine wire.", image: "images/debbie-neill.jpg" },
       { name: "Vauna Turner", specialty: "Ceramicist", bio: "Skilled ceramic artist crafting unique organic vessels and tactile forms.", image: "images/vauna-turner.jpg" },
-      { name: "Jacque Ruston", specialty: "Ceramicist", bio: "Handcrafted pottery and ceramic art objects.", image: "images/jacque-ruston.jpg" },
+      { name: "Jacque Ruston", specialty: "Ceramicist", bio: "Handcrafted pottery and contemporary ceramic art objects.", image: "images/jacque-ruston.jpg" },
       { name: "Barbara Dawson", specialty: "Sculptor/Cast Bronze", bio: "Exquisite cast bronze sculptural works reflecting form, texture, and grace.", image: "images/barbara-dawson.jpg" },
       { name: "Debbie McCaw", specialty: "Collage", bio: "Master of detailed paper and mixed-media collage works.", image: "images/debbie-mccaw.jpg" },
       { name: "Tracey Morrow", specialty: "Photographer", bio: "Capturing the striking moods, heritage, and landscapes of Central Otago through the lens.", image: "images/tracey-morrow.jpg" }
