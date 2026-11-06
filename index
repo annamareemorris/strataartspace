@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Strata Artspace — Contemporary Art Gallery | Cromwell, NZ</title>
+  
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    :root {
+      --bg-main: #f9f9fb;
+      --bg-card: #ffffff;
+      --bg-alt: #f1f3f5;
+      --text-main: #1c1e21;
+      --text-muted: #65676b;
+      --accent-copper: #c25e00;
+      --accent-gold: #d97706;
+      --accent-glow: rgba(194, 94, 0, 0.15);
+      --border-color: rgba(0, 0, 0, 0.08);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
+      --font-heading: 'Cormorant Garamond', serif;
+      --font-body: 'Inter', sans-serif;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: #111827;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, var(--accent-copper), var(--accent-gold));
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.4rem;
+    }
+
+    .brand-title {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--text-main);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-copper);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after, .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .fb-btn {
+      background: #1877f2;
+      color: white !important;
+      padding: 0.55rem 1.35rem;
+      border-radius: 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      font-size: 0.85rem !important;
+      transition: var(--transition) !important;
+      box-shadow: 0 4px 12px rgba(24, 119, 242, 0.25);
+    }
+
+    .fb-btn:hover {
+      background: #166fe5;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(24, 119, 242, 0.35);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 80vh;
+      padding: 9rem 2rem 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: radial-gradient(circle at 50% 20%, rgba(217, 119, 6, 0.06) 0%, rgba(249, 249, 251, 1) 70%);
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 880px;
+    }
+
+    .hero-subtitle {
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--accent-copper);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+      color: #111827;
+    }
+
+    .hero-desc {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 2.5rem;
+      font-weight: 300;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3.5rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .stat-item h4 {
+      font-size: 2.2rem;
+      color: var(--accent-copper);
+    }
+
+    .stat-item p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 500;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section {
+      padding: 6rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title {
+      font-size: 2.8rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1rem;
+    }
+
+    /* Filter Controls */
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 3rem;
+    }
+
+    .filter-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 0.6rem 1.4rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--accent-copper);
+      color: white;
+      border-color: var(--accent-copper);
+      box-shadow: 0 4px 15px var(--accent-glow);
+    }
+
+    /* Gallery Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .art-card {
+      background: var(--bg-card);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .art-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(194, 94, 0, 0.3);
+      box-shadow: var(--shadow-md);
+    }
+
+    .art-img-wrapper {
+      position: relative;
+      padding-top: 100%;
+      overflow: hidden;
+      background: #eaeff4;
+    }
+
+    .art-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .art-card:hover .art-img {
+      transform: scale(1.05);
+    }
+
+    .art-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .art-card:hover .art-overlay {
+      opacity: 1;
+    }
+
+    .view-btn {
+      background: #111827;
+      color: #fff;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: scale(0.8);
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .art-card:hover .view-btn {
+      transform: scale(1);
+    }
+
+    .art-info {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .art-category {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-copper);
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .art-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.3rem;
+      color: #111827;
+    }
+
+    .art-artist {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 400;
+    }
+
+    /* Artist Spotlight Section */
+    .artists-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .artist-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 1.75rem;
+      border-radius: 12px;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .artist-card:hover {
+      border-color: var(--accent-copper);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .artist-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #fdf6b2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: var(--accent-copper);
+      border: 2px solid var(--accent-copper);
+      flex-shrink: 0;
+    }
+
+    .artist-meta h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .artist-meta p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Lightbox Modal */
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(17, 24, 39, 0.75);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition);
+    }
+
+    .modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      max-width: 950px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+    }
+
+    @media (max-width: 768px) {
+      .modal-content {
+        grid-template-columns: 1fr;
+        max-height: 85vh;
+        overflow-y: auto;
+      }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid var(--border-color);
+      color: #111;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .modal-close:hover {
+      background: var(--accent-copper);
+      color: white;
+      border-color: var(--accent-copper);
+    }
+
+    .modal-img-container {
+      background: #f3f4f6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 350px;
+    }
+
+    .modal-img-container img {
+      width: 100%;
+      height: 100%;
+      max-height: 550px;
+      object-fit: contain;
+    }
+
+    .modal-details {
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .modal-badge {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent-copper);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-title {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-artist {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .modal-desc {
+      color: #4b5563;
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .modal-meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      background: var(--bg-alt);
+      padding: 1rem;
+      border-radius: 8px;
+    }
+
+    .meta-item label {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .meta-item span {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #111827;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn-primary {
+      background: var(--accent-copper);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 500;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 12px var(--accent-glow);
+    }
+
+    .btn-primary:hover {
+      background: #a34e00;
+    }
+
+    /* Visitor Info & Facebook Section */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    @media (max-width: 868px) {
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .info-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .info-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .info-card h3 i {
+      color: var(--accent-copper);
+    }
+
+    .contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: flex-column;
+      gap: 1.25rem;
+    }
+
+    .contact-list li {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      color: #4b5563;
+    }
+
+    .contact-list i {
+      color: var(--accent-copper);
+      font-size: 1.1rem;
+      margin-top: 0.2rem;
+    }
+
+    /* Social Feed Card */
+    .fb-card {
+      background: linear-gradient(180deg, rgba(24, 119, 242, 0.04) 0%, var(--bg-card) 100%);
+      border: 1px solid rgba(24, 119, 242, 0.2);
+    }
+
+    .fb-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .fb-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #1877f2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    .fb-post-preview {
+      background: var(--bg-alt);
+      border-radius: 12px;
+      padding: 1.5rem;
+      border: 1px solid var(--border-color);
+      margin-bottom: 1.5rem;
+    }
+
+    .fb-post-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 3rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      background: #ffffff;
+    }
+
+    footer a {
+      color: var(--accent-copper);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="brand">
+      <div class="brand-logo">S</div>
+      <span class="brand-title">Strata Artspace</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#gallery" class="active">Gallery</a></li>
+      <li><a href="#artists">Artists</a></li>
+      <li><a href="#about">About & Visit</a></li>
+      <li>
+        <a href="https://www.facebook.com/p/Strata-Artspace-61595813769390/" target="_blank" class="fb-btn">
+          <i class="fa-brands fa-facebook-f"></i> Facebook
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
+      <p class="hero-subtitle">Old Cromwell Historic Precinct • Central Otago</p>
+      <h1 class="hero-title">A Collective Vision of Contemporary Art</h1>
+      <p class="hero-desc">
+        Welcome to Strata Artspace. Formerly Hullabaloo Art Space, our gallery in Cromwell features a rich layering of local New Zealand painting, jewellery, fibre textiles, and photography.
+      </p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <h4>3</h4>
+          <p>Resident Artists</p>
+        </div>
+        <div class="stat-item">
+          <h4>15</h4>
+          <p>Melmore Terrace</p>
+        </div>
+        <div class="stat-item">
+          <h4>6 Days</h4>
+          <p>Open 10am - 4pm</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Curated Gallery Collection</h2>
+        <p class="section-desc">Explore recent works from our resident artists in the heart of Central Otago.</p>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterGallery('all')">All Works</button>
+        <button class="filter-btn" onclick="filterGallery('Painting/Drawing')">Painting</button>
+        <button class="filter-btn" onclick="filterGallery('Jewellery')">Jewellery</button>
+        <button class="filter-btn" onclick="filterGallery('Fibre/Textiles')">Fibre & Textiles</button>
+        <button class="filter-btn" onclick="filterGallery('Photography')">Photography</button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Dynamic Cards Inserted Here via Javascript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Resident Artists Section -->
+  <section id="artists" class="section" style="background: var(--bg-alt); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Resident Artists</h2>
+        <p class="section-desc">Meet the official local artists exhibiting at Strata Artspace in Old Cromwell Heritage Precinct.</p>
+      </div>
+      <div class="artists-grid" id="artistsGrid">
+        <!-- Dynamic Artist Cards -->
+      </div>
+    </div>
+  </section>
+
+  <!-- About & Visitor Information Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="info-grid">
+        
+        <!-- Visitor Info Card -->
+        <div class="info-card">
+          <h3><i class="fa-solid fa-location-dot"></i> Visit the Space</h3>
+          <ul class="contact-list">
+            <li>
+              <i class="fa-solid fa-map-pin"></i>
+              <div>
+                <strong style="color: #111827;">Location</strong><br/>
+                Strata Artspace (ex Hullabaloo Art Space)<br/>
+                1 & 15 Melmore Terrace, Old Cromwell Historic Precinct<br/>
+                Central Otago 9310, New Zealand
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-clock"></i>
+              <div>
+                <strong style="color: #111827;">Gallery Hours</strong><br/>
+                Open 6 Days: 10:00 AM – 4:00 PM<br/>
+                <span style="color: var(--accent-copper); font-size: 0.85rem; font-weight: 500;">(Closed Tuesdays — Artist on duty daily)</span>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-hand-holding-heart"></i>
+              <div>
+                <strong style="color: #111827;">Artist Collective</strong><br/>
+                Operated as a creative collective supporting local Southern Lake artists and regional fine arts.
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Facebook Integration Preview Card -->
+        <div class="info-card fb-card">
+          <div class="fb-header">
+            <div class="fb-avatar">
+              <i class="fa-brands fa-facebook-f"></i>
+            </div>
+            <div>
+              <h3 style="margin-bottom:0; font-size: 1.4rem;">Strata Artspace</h3>
+              <p style="color: var(--text-muted); font-size: 0.85rem;">@Strata-Artspace • Community Gallery</p>
+            </div>
+          </div>
+
+          <div class="fb-post-preview">
+            <div class="fb-post-header">
+              <span><i class="fa-solid fa-bullhorn" style="color:var(--accent-copper);"></i> Gallery Updates</span>
+              <span>Official Facebook Page</span>
+            </div>
+            <p style="font-size: 0.95rem; color: #374151; margin-bottom: 1rem;">
+              Follow our official Facebook page to stay updated on our upcoming monthly feature artist exhibitions, new arrivals in jewellery and textiles, and community gallery events!
+            </p>
+            <a href="https://www.facebook.com/p/Strata-Artspace-61595813769390/" target="_blank" style="color: var(--accent-copper); font-size: 0.85rem; font-weight: 600;">
+              View on Facebook <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <a href="https://www.facebook.com/p/Strata-Artspace-61595813769390/" target="_blank" class="btn-primary" style="width: 100%; justify-content: center;">
+            <i class="fa-brands fa-facebook"></i> Visit Official Facebook Page
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Lightbox -->
+  <div class="modal" id="artModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-img-container">
+        <img id="modalImg" src="" alt="Artwork detail"/>
+      </div>
+      <div class="modal-details">
+        <div class="modal-badge" id="modalCategory">Category</div>
+        <h2 class="modal-title" id="modalTitle">Artwork Title</h2>
+        <div class="modal-artist" id="modalArtist">by Artist Name</div>
+        <p class="modal-desc" id="modalDesc">Artwork description placeholder.</p>
+        
+        <div class="modal-meta-grid">
+          <div class="meta-item">
+            <label>Location</label>
+            <span>Melmore Tce, Cromwell</span>
+          </div>
+          <div class="meta-item">
+            <label>Medium</label>
+            <span id="modalMedium">Fine Art</span>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <a href="https://www.facebook.com/p/Strata-Artspace-61595813769390/" target="_blank" class="btn-primary">
+            <i class="fa-brands fa-facebook-messenger"></i> Enquire via Facebook
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Strata Artspace. Located in Old Cromwell Historic Precinct, Central Otago, New Zealand.</p>
+      <p style="margin-top: 0.5rem;">
+        Follow us on <a href="https://www.facebook.com/p/Strata-Artspace-61595813769390/" target="_blank">Facebook</a> for current exhibitions and news.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Strictly verified official artists listed for Strata Artspace (Gail de Jong, Carmen Burgi, Sue-Ellen Bauer)
+    const galleryItems = [
+      {
+        id: 1,
+        title: "Otago Light & Shadow",
+        artist: "Gail de Jong",
+        category: "Painting/Drawing",
+        medium: "Oil on Canvas",
+        desc: "An expressive exploration of the central Otago landscape, capturing shifting light and rugged geological formations.",
+        image: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 2,
+        title: "Artisan Precious Metal Piece",
+        artist: "Carmen Burgi",
+        category: "Jewellery",
+        medium: "Sterling Silver & Local Stone",
+        desc: "Handcrafted artisan jewellery inspired by natural forms and textures found in historic goldfields and rivers.",
+        image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 3,
+        title: "Woven Strata & Textures",
+        artist: "Sue-Ellen Bauer",
+        category: "Fibre/Textiles",
+        medium: "Mixed Fibre & Textile Design",
+        desc: "A deeply tactile textile piece drawing upon rich layerings and fiber compositions.",
+        image: "https://images.unsplash.com/photo-1606744824163-985d376605aa?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 4,
+        title: "Dunstan Basin Horizon",
+        artist: "Gail de Jong",
+        category: "Painting/Drawing",
+        medium: "Acrylic & Mixed Media",
+        desc: "Layered painterly tones evoking vast expanses and dramatic skies over Lake Dunstan.",
+        image: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 5,
+        title: "Forged Contemporary Ring",
+        artist: "Carmen Burgi",
+        category: "Jewellery",
+        medium: "Gold & Silver Jewellery Design",
+        desc: "Elegantly constructed contemporary ring blending modern design with traditional metalsmithing.",
+        image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 6,
+        title: "Atmospheric Central Otago Study",
+        artist: "Sue-Ellen Bauer",
+        category: "Photography",
+        medium: "Fine Art Print",
+        desc: "Capturing subtle shifts in atmospheric light and texture across the Central Otago landscape.",
+        image: "https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=800&q=80"
+      }
+    ];
+
+    const artistsList = [
+      { name: "Gail de Jong", specialty: "Painting & Drawing" },
+      { name: "Carmen Burgi", specialty: "Jewellery & Metalsmithing" },
+      { name: "Sue-Ellen Bauer", specialty: "Fibre / Textiles / Photography" }
+    ];
+
+    // Render Gallery Cards
+    function renderGallery(items) {
+      const container = document.getElementById('galleryGrid');
+      container.innerHTML = '';
+
+      items.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'art-card';
+        card.onclick = () => openModal(item);
+        card.innerHTML = `
+          <div class="art-img-wrapper">
+            <img src="${item.image}" alt="${item.title}" class="art-img" loading="lazy">
+            <div class="art-overlay">
+              <div class="view-btn"><i class="fa-solid fa-expand"></i></div>
+            </div>
+          </div>
+          <div class="art-info">
+            <span class="art-category">${item.category}</span>
+            <h3 class="art-title">${item.title}</h3>
+            <p class="art-artist">by ${item.artist}</p>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Render Artists List
+    function renderArtists() {
+      const container = document.getElementById('artistsGrid');
+      container.innerHTML = '';
+
+      artistsList.forEach(artist => {
+        const card = document.createElement('div');
+        card.className = 'artist-card';
+        card.innerHTML = `
+          <div class="artist-avatar">
+            <i class="fa-solid fa-palette"></i>
+          </div>
+          <div class="artist-meta">
+            <h3>${artist.name}</h3>
+            <p>${artist.specialty}</p>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Filter Functionality
+    function filterGallery(category) {
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if(btn.innerText.toLowerCase().includes(category.toLowerCase()) || (category === 'all' && btn.innerText === 'All Works')) {
+          btn.classList.add('active');
+        }
+      });
+
+      if (category === 'all') {
+        renderGallery(galleryItems);
+      } else {
+        const filtered = galleryItems.filter(item => item.category.toLowerCase().includes(category.toLowerCase()));
+        renderGallery(filtered);
+      }
+    }
+
+    // Modal Control
+    function openModal(item) {
+      document.getElementById('modalImg').src = item.image;
+      document.getElementById('modalTitle').innerText = item.title;
+      document.getElementById('modalArtist').innerText = `by ${item.artist}`;
+      document.getElementById('modalCategory').innerText = item.category;
+      document.getElementById('modalDesc').innerText = item.desc;
+      document.getElementById('modalMedium').innerText = item.medium;
+
+      const modal = document.getElementById('artModal');
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('artModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Close modal on background click
+    document.getElementById('artModal').addEventListener('click', (e) => {
+      if (e.target.id === 'artModal') closeModal();
+    });
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      renderGallery(galleryItems);
+      renderArtists();
+    });
+  </script>
+</body>
+</html>
