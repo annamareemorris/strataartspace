@@ -423,7 +423,7 @@
         card.onclick = () => openModal(item);
         card.innerHTML = `
           <div class="art-img-wrapper">
-            <img src="${item.image}" onerror="this.src='https://raw.githubusercontent.com/annamareemorris/strataartspace/main/${item.image}'" alt="${item.title}" class="art-img" loading="lazy">
+            <img src="${item.image}" onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/annamareemorris/strataartspace/main/${item.image}'" alt="${item.title}" class="art-img" loading="lazy">
             <div class="art-overlay"><div class="view-btn"><i class="fa-solid fa-expand"></i></div></div>
           </div>
           <div class="art-info">
@@ -443,7 +443,11 @@
         const card = document.createElement('div');
         card.className = 'artist-card';
         card.innerHTML = `
-          <img src="${artist.image}" onerror="this.src='https://raw.githubusercontent.com/annamareemorris/strataartspace/main/${artist.image}'" alt="${artist.name}" class="artist-avatar" onerror="this.onerror=null; this.replaceWith(Object.assign(document.createElement('div'), {className: 'artist-avatar', innerHTML: '<i class=\\'fa-solid fa-user\\'></i>'}))">
+          <img src="${artist.image}" 
+               onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/annamareemorris/strataartspace/main/${artist.image}'; this.onerror=function(){this.replaceWith(Object.assign(document.createElement('div'), {className: 'artist-avatar', innerHTML: '<i class=\\'fa-solid fa-user\\'></i>'}))}" 
+               alt="${artist.name}" 
+               class="artist-avatar" 
+               loading="lazy">
           <h3>${artist.name}</h3>
           <p class="artist-specialty">${artist.specialty}</p>
           <p class="artist-bio">${artist.bio}</p>
