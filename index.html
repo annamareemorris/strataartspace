@@ -62,6 +62,17 @@
     }
     .fb-btn:hover { background: #1565c0; transform: translateY(-2px); }
 
+    .ig-btn {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      color: white !important; padding: 0.5rem 1.3rem; border-radius: 30px;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-weight: 600; font-size: 0.8rem !important; transition: var(--transition) !important;
+      box-shadow: 0 4px 12px rgba(220, 39, 67, 0.2);
+    }
+    .ig-btn:hover { filter: brightness(1.08); transform: translateY(-2px); }
+    .social-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-social { display: flex; justify-content: center; gap: 1.25rem; margin-bottom: 1rem; font-size: 1.3rem; }
+
     /* Hero Section with Large Centered Logo */
     .hero {
       min-height: 85vh; padding: 11rem 2rem 5rem; display: flex; align-items: center; justify-content: center;
@@ -209,6 +220,11 @@
           <i class="fa-brands fa-facebook-f"></i> Facebook
         </a>
       </li>
+      <li>
+        <a href="https://www.instagram.com/strata_art_space/" target="_blank" rel="noopener" class="ig-btn">
+          <i class="fa-brands fa-instagram"></i> Instagram
+        </a>
+      </li>
     </ul>
   </nav>
 
@@ -269,16 +285,21 @@
       <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.9; margin-bottom: 2rem;">
         Located at Melmore Terrace, Old Cromwell Historic Precinct, Central Otago. Open 7 days a week from 10:00 AM to 4:00 PM. Come in and meet our artists on duty daily.
       </p>
-      <a href="https://www.facebook.com/p/Strata-Artspace-61595813769390/" target="_blank" class="fb-btn" style="padding: 0.85rem 2rem; font-size: 0.95rem !important;">
-        <i class="fa-brands fa-facebook"></i> Connect with us on Facebook
-      </a>
+      <div class="social-row">
+        <a href="https://www.facebook.com/p/Strata-Artspace-61595813769390/" target="_blank" class="fb-btn" style="padding: 0.85rem 2rem; font-size: 0.95rem !important;">
+          <i class="fa-brands fa-facebook"></i> Connect with us on Facebook
+        </a>
+        <a href="https://www.instagram.com/strata_art_space/" target="_blank" rel="noopener" class="ig-btn" style="padding: 0.85rem 2rem; font-size: 0.95rem !important;">
+          <i class="fa-brands fa-instagram"></i> Follow us on Instagram
+        </a>
+      </div>
     </div>
 
     <!-- Location Map -->
     <div class="container" style="max-width: 1000px; margin-top: 3.5rem;">
       <div class="map-wrapper">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d145.66592474964455!2d169.20703634833856!3d-45.04912423486253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sstrata%20art%20space%20cromwell!5e1!3m2!1sen!2snz!4v1794976732842!5m2!1sen!2snz"
+          src="https://maps.google.com/maps?q=-45.049140,169.207270&t=k&z=19&output=embed"
           title="Map showing Strata Artspace, Melmore Terrace, Cromwell"
           loading="lazy"
           referrerpolicy="strict-origin-when-cross-origin"
@@ -288,7 +309,7 @@
         <i class="fa-solid fa-location-dot"></i>
         Cromwell Heritage Precinct, Melmore Terrace, Cromwell 9310
         &nbsp;·&nbsp;
-        <a href="https://www.google.com/maps/dir/?api=1&destination=Strata%20Artspace%2C%20Melmore%20Terrace%2C%20Cromwell%209310%2C%20New%20Zealand" target="_blank" rel="noopener">Get directions</a>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=-45.049140%2C169.207270" target="_blank" rel="noopener">Get directions</a>
       </p>
     </div>
   </section>
@@ -314,6 +335,10 @@
 
   <footer>
     <div class="container">
+      <div class="footer-social">
+        <a href="https://www.facebook.com/p/Strata-Artspace-61595813769390/" target="_blank" aria-label="Strata Artspace on Facebook"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://www.instagram.com/strata_art_space/" target="_blank" rel="noopener" aria-label="Strata Artspace on Instagram"><i class="fa-brands fa-instagram"></i></a>
+      </div>
       <p>&copy; 2026 Strata Artspace. Old Cromwell Historic Precinct, Central Otago, New Zealand.</p>
     </div>
   </footer>
