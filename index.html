@@ -48,6 +48,21 @@
       "opens": "10:00",
       "closes": "16:00"
     }],
+    "keywords": "art gallery, Cromwell, Central Otago, contemporary art, jewellery, sculpture, paintings, ceramics, collage, photography, local artists, Cromwell Heritage Precinct",
+    "member": [
+      { "@type": "Person", "name": "Carmen Burgi" },
+      { "@type": "Person", "name": "Jennifer Hay" },
+      { "@type": "Person", "name": "Gail de Jong" },
+      { "@type": "Person", "name": "Kirsty Mills" },
+      { "@type": "Person", "name": "Drew McRae" },
+      { "@type": "Person", "name": "Debbie Neill" },
+      { "@type": "Person", "name": "Vauna Turner" },
+      { "@type": "Person", "name": "Jacque Ruston" },
+      { "@type": "Person", "name": "Barbara Dawson" },
+      { "@type": "Person", "name": "Debbie McCaw" },
+      { "@type": "Person", "name": "Tracey Morrow" }
+    ],
+    "hasMap": "https://www.google.com/maps/search/?api=1&query=-45.04914%2C169.20727",
     "sameAs": [
       "https://www.facebook.com/p/Strata-Artspace-61595813769390/",
       "https://www.instagram.com/strata_art_space/"
@@ -318,6 +333,8 @@
       .social-row a { width: 100%; justify-content: center; }
     }
 
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
     /* Footer */
     footer { border-top: 1px solid var(--border-color); padding: 4rem 0; text-align: center; color: var(--text-muted); font-size: 0.9rem; background: #fff; }
     footer a { color: var(--accent-burgundy); font-weight: 600; }
@@ -351,8 +368,10 @@
   <!-- Hero Section with Centered Logo -->
   <header class="hero">
     <div class="hero-content">
-      <img src="images/stratalogo.jpg" alt="Strata Artspace Logo" class="hero-logo-img">
-      <h1 id="fallback-logo" style="display:none; font-family:'Cormorant Garamond'; font-size:3.5rem; font-weight:700; color:#3d1418; margin-bottom:1.5rem;">STRATA ARTSPACE</h1>
+      <h1 style="margin:0;">
+        <img src="images/stratalogo.jpg" alt="Strata Artspace" class="hero-logo-img">
+        <span class="sr-only">Strata Artspace: contemporary art gallery in Cromwell, Central Otago</span>
+      </h1>
       
       <p class="hero-subtitle">Old Cromwell Historic Precinct • Central Otago</p>
       

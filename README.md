@@ -58,6 +58,7 @@ Add or edit an entry in the `artistsList` list in `index.html`:
 - **Map:** a Google Maps embed in the Visit section, pinned on the gallery building.
 - **Social feeds:** the Facebook Page Plugin and an Instagram profile embed, above the map.
 - **Business details for Google:** a structured-data block in the `<head>` with the address, hours, phone and social links. Update it if the hours or contact details change.
+- **Search engines:** `robots.txt` and `sitemap.xml` tell search engines what to index. Update the `<lastmod>` date in `sitemap.xml` after big content changes. The artist list in the structured data must be updated when artists join or leave.
 - **Link previews:** `images/og-image.jpg` is the picture shown when the site is shared.
 
 ## Contact
