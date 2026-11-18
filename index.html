@@ -189,6 +189,19 @@
     .modal-artist { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-color); }
     .modal-desc { color: var(--text-muted); font-size: 0.98rem; margin-bottom: 2rem; line-height: 1.8; }
 
+    /* Social Feeds */
+    .feeds-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; margin-top: 3.5rem; }
+    .feed-card {
+      background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 20px;
+      box-shadow: var(--shadow-sm); padding: 1rem; width: 100%; max-width: 440px;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .feed-card h3 { font-size: 1.35rem; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+    .feed-card h3 .fa-facebook { color: #1877f2; }
+    .feed-card h3 .fa-instagram { color: #dc2743; }
+    .feed-frame { width: 100%; display: flex; justify-content: center; }
+    .feed-frame iframe { border: 0; overflow: hidden; border-radius: 10px; max-width: 100%; }
+
     /* Location Map */
     .map-wrapper {
       position: relative; width: 100%; padding-top: 50%; border-radius: 20px; overflow: hidden;
@@ -292,6 +305,23 @@
         <a href="https://www.instagram.com/strata_art_space/" target="_blank" rel="noopener" class="ig-btn" style="padding: 0.85rem 2rem; font-size: 0.95rem !important;">
           <i class="fa-brands fa-instagram"></i> Follow us on Instagram
         </a>
+      </div>
+    </div>
+
+    <!-- Social Feeds -->
+    <div class="container" style="max-width: 1000px;">
+      <div class="feeds-grid">
+        <div class="feed-card">
+          <h3><i class="fa-brands fa-facebook"></i> Latest on Facebook</h3>
+          <div class="feed-frame" id="fbFeed"></div>
+        </div>
+        <div class="feed-card">
+          <h3><i class="fa-brands fa-instagram"></i> Latest on Instagram</h3>
+          <div class="feed-frame">
+            <iframe src="https://www.instagram.com/strata_art_space/embed" title="Strata Artspace on Instagram"
+                    width="400" height="560" loading="lazy" scrolling="no"></iframe>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -559,9 +589,20 @@
       if (e.target.id === 'artModal') closeModal();
     });
 
+    // Facebook Page Plugin: sized to its card on load (Facebook allows 180–500px wide)
+    function renderFacebookFeed() {
+      const box = document.getElementById('fbFeed');
+      const w = Math.max(180, Math.min(500, Math.floor(box.clientWidth)));
+      const href = encodeURIComponent('https://www.facebook.com/p/Strata-Artspace-61595813769390/');
+      box.innerHTML = `<iframe src="https://www.facebook.com/plugins/page.php?href=${href}&tabs=timeline&width=${w}&height=560&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false"
+        title="Strata Artspace on Facebook" width="${w}" height="560" loading="lazy" scrolling="no"
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>`;
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       renderGallery(galleryItems);
       renderArtists();
+      renderFacebookFeed();
     });
   </script>
 </body>
